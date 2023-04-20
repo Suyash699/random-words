@@ -260,6 +260,11 @@ function words(options) {
     }
   }
 
+  function generateRandomWordStartingWith(){
+    const filteredList = wordList.filter(word => {return word[0].toLowerCase === options[0].toLowerCase});
+    if(filteredList.length === 0) return null;
+  }
+
   function generateWordWithMaxLength() {
     var rightSize = false;
     var wordUsed;
@@ -291,6 +296,12 @@ function words(options) {
   // Just a number = return that many words
   if (typeof(options) === 'number') {
     options = { exactly: options };
+  }
+
+  if(options.startsWith){
+    if(options[0].toLowerCase>= "a" && options[0].toLowerCase<= "z"){
+      return generateRandomWordStartingWith();
+    } else return null;
   }
 
   // options supported: exactly, min, max, join
@@ -344,3 +355,5 @@ function words(options) {
 module.exports = words;
 // Export the word list as it is often useful
 words.wordList = wordList;
+
+console.log(randomwords());
