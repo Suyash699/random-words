@@ -355,5 +355,3 @@ function words(options) {
 module.exports = words;
 // Export the word list as it is often useful
 words.wordList = wordList;
-
-console.log(randomwords());
